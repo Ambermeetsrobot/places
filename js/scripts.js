@@ -14,18 +14,17 @@ $(document).ready(function(){
     var inputtedLandmarks = $("input#new-landmarks").val();
     var inputtedTime = $("input#new-time").val();
 
-    var newPlace = new Place(inputtedPlace, inputtedLocation, inputtedLandmarks, inputtedTime);
+    var newSpots = new Place(inputtedPlace, inputtedLocation, inputtedLandmarks, inputtedTime);
 
-    (".new-places").append(newPlace.place);
+    $("ul#visited").append("<li><span class='visit'>" + newSpots.newPlace + "</span></li>");
 
-    $(".placedetails").last().click(function() {
-      ("show-details").show();
-      $("#show-details h2").text(newPlace.place);
-      $(".new-place").text(newPlace.place);
-      $(".new-location").text(newLocation.location);
-      $(".new-landmarks").text(newLandmarks.landmarks);
-      $(".new-time").text(newTime.time);
-      debugger;
+    $(".visit").last().click(function() {
+      $("#show-details").show();
+      $("#show-details h2").text(newSpots.newPlace);
+      $(".new-place").text(newSpots.newPlace);
+      $(".new-location").text(newSpots.newLocation);
+      $(".new-landmarks").text(newSpots.newLandmarks);
+      $(".new-time").text(newSpots.newTime);
     });
 
     $("input#new-place").val("");
